@@ -1,21 +1,68 @@
-public class VisiCalc{
+import java.util.Scanner;
 
- public stattic void main (String[] args){
+public class VisiCalc {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-String[][] table = new String[16][11]:
+        String[][] tabla = new String[16][11];
+        String[] comados = { "w", "A", "S", "D" };
 
- table[0][0]= "+--------------------------------------------+\n";
- table[0][1]= "|   | A | B | C | D | E | F | G | H | I | J  |\n";
- table[0][2]= "|---+---+---+---+---+---+---+---+---+---+---+|\n";
+        int currentRow = 1;
+        int currentCol = 1;
 
-  for(int fila =1;fila<=15;filaa++)
-   
+        tabla[0][0] = "+--------------------------------------------+\n";
+        tabla[0][1] = "|   | A | B | C | D | E | F | G | H | I |  J |\n";
+        tabla[0][2] = "|---+---+---+---+---+---+---+---+---+---+---+|\n";
 
+        for (int fila = 1; fila <= 15; fila++) {
+            tabla[fila][0] = "| " + fila + "|   ";
+            if(fila >= 10){
+                tabla[fila][0] = "|" + fila + "|   ";
+            }
+        }
 
+        for (int fila = 1; fila < 14; fila++) {
+            for (int columna = 1; columna <= 10; columna++) {
+                tabla[fila][columna] = "  | ";
+            }
+        }
 
+        // Imprimir la tabla
+        for (int fila = 0; fila <= 15; fila++) {
+            for (int columna = 0; columna <= 10; columna++) {
+                System.out.print(tabla[fila][columna]);
+            }
+            System.out.println();
+        }
 
+        while (true) {
+            System.out.print("Ingrese un comando (W/A/S/D/F): ");
+            String comando = scanner.next();
 
-
-   
- }
+            if (comando.equals("W")) {
+                if (currentRow > 1) {
+                    currentRow--;
+                }
+            } else if (comando.equals("A")) {
+                if (currentCol > 1) {
+                    currentCol--;
+                }
+            } else if (comando.equals("S")) {
+                if (currentRow < 15) {
+                    currentRow++;
+                }
+            } else if (comando.equals("D")) {
+                if (currentCol < 10) {
+                    currentCol++;
+                }
+            } else {
+                if (comando.equals("F")) {
+                    System.out.println("the program end");
+                } else {
+                    System.out.println("Comando inválido. Intente nuevamente.");
+                    continue;
+                }
+            }
+        }
+    }
 }
