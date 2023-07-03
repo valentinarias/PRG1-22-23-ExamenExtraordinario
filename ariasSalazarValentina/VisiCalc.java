@@ -21,7 +21,7 @@ public class VisiCalc {
             }
         }
 
-        for (int fila = 1; fila < 14; fila++) {
+        for (int fila = 1; fila <= 15; fila++) {
             for (int columna = 1; columna <= 10; columna++) {
                 tabla[fila][columna] = "  | ";
             }
@@ -30,11 +30,13 @@ public class VisiCalc {
         // Imprimir la tabla
         for (int fila = 0; fila <= 15; fila++) {
             for (int columna = 0; columna <= 10; columna++) {
+                if (tabla[fila][columna] == null) {
+                    tabla[fila][columna] = "     ";
+                }
                 System.out.print(tabla[fila][columna]);
             }
             System.out.println();
         }
-
         while (true) {
             System.out.print("Ingrese un comando (W/A/S/D/F): ");
             String comando = scanner.next();
