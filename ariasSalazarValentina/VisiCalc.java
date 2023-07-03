@@ -44,7 +44,7 @@ public class VisiCalc {
 
         while (true) {
             System.out.print("Ingrese un comando (W/A/S/D/F): ");
-            System.out.println(CMDs:[W]Arriba,[S]Abajo,[A]izquierda,);
+            System.out.println("CMDs:[W]Arriba,[S]Abajo,[A]izquierda,");
             String comando = scanner.next();
 
             if (comando.equals("W")) {
